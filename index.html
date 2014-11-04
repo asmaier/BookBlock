@@ -147,15 +147,10 @@
 							}
 						} );
 
-
-
-						$(window).scroll(function(event){
-						   
-						});
 						// see http://stackoverflow.com/questions/4326845/how-can-i-determine-the-direction-of-a-jquery-scroll-event
 						var lastScrollTop = 0;
 						// add scroll events
-						$( document ).scroll( function(e) {
+						$( window ).scroll( function(event) {
 							var st = $(this).scrollTop();
 						   	if (st > lastScrollTop){
 						       config.$bookBlock.bookblock( 'next' );
