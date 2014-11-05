@@ -148,20 +148,15 @@
 						} );
 
 						// see http://stackoverflow.com/questions/4326845/how-can-i-determine-the-direction-of-a-jquery-scroll-event
-						var lastScrollTop = 0;
-						// add scroll events
-						$( window ).scroll( function(event) {
-							var st = $(this).scrollTop();
-						   	if (st > lastScrollTop){
-						       config.$bookBlock.bookblock( 'next' );
-						   	} else {
-						      config.$bookBlock.bookblock( 'prev' );
-						   	}
-						   lastScrollTop = st;
-						} );
+						$(document).bind('mousewheel', function(event) {
+    					if (event.originalEvent.wheelDelta >= 0) {
+    						config.$bookBlock.bookblock( 'prev' );
+    					}
+    					else {
+    						config.$bookBlock.bookblock( 'next' );
+    					}
+						});
 					};
-
-
 
 					return { init : init };
 
